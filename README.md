@@ -1,66 +1,99 @@
-<p align="center"><a href="https://laravel.com" target="_blank">RESTful API for a blog post application using Laravel</a></p>
+## Blog Application API - Laravel 11
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This repository contains a RESTful API for a Blog Application built using Laravel 11. The project includes both API and web routes, with separate controllers for each, and is designed to handle User Authentication, CRUD operations for blog posts, and the ability to add comments to blog posts.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- User Authentication (Registration and Login)
+- CRUD Operations for Blog Posts:
+- Create: Add new posts via a popup modal.
+- Edit: Modify posts via a popup modal.
+- Show: View individual blog posts on a dedicated page.
+- Delete: Remove posts via a confirmation popup.
+- Comments: Users can add comments to individual blog posts.
+- API and Web Separation: Different routes and controllers are used for API and web functionality.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Bonus Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Pagination for listing blog posts.
 
-## Learning Laravel
+## Technologies Used
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Laravel 11
+- Laravel Sanctum for user authentication.
+- Eloquent ORM for database interactions.
+- Database Migrations and Seeders for setting up and populating the database.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Setup Instructions
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Prerequisites
+- PHP >= 8.1
+- Composer
+- MySQL
+- Laravel 11 installed
 
-## Laravel Sponsors
+## Installation Steps
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1- Clone the repository:
+ - git clone https://github.com/your-username/blog-app-laravel.git
+ - cd blog-app-laravel
 
-### Premium Partners
+2- Install dependencies:
+ - composer install
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+3- Copy the example environment file:
+ - cp .env.example .env
+   
+4- Generate an application key:
+ - php artisan key:generate
+   
+5- Configure the .env file: Set up your database credentials in the .env file:
+ - DB_DATABASE=blogapp
+ - DB_USERNAME=root
+ - DB_PASSWORD=your-password
+   
+6- Serve the application:
+ - php artisan serve
 
-## Contributing
+## API Endpoints
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+ - Method	        Endpoint	                    Description
+ - POST	            /api/register	                Register a new user
+ - POST	            /api/login	                    User login
+ = GET	            /api/posts	                    List all blog posts (paginated)
+ - GET	            /api/posts/{id}	                View a single blog post
+ - POST	            /api/posts	                    Create a new blog post
+ - PUT	            /api/posts/{id}	                Edit an existing blog post
+ - DELETE	        /api/posts/{id}	                Delete a blog post
+ - POST	            /api/posts/{id}/comments	    Add a comment to a blog post
 
-## Code of Conduct
+## Web Routes
+ - Web routes and controllers are defined separately in the web.php file, allowing you to access the blog application with CRUD functionality via the web interface.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Authentication Details (Admin)
+ - You can use the following login details to access the application:
+ - Email: admin@gmail.com
+ - Password: 12345678
 
-## Security Vulnerabilities
+## Database
+ - The project uses MySQL with a database named blogapp.sql.
+ - Database migrations and seeders are included in the /database/seeders/ directory.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## CRUD Features Implementation
+ - Create Post: A popup modal opens where you can add a new post.
+ - Edit Post: A popup modal opens to edit an existing post.
+ - Show Post: The post opens on a new page where all details are displayed.
+ - Delete Post: Clicking delete opens a confirmation popup (Yes/No). On confirming, the post is deleted.
+ - Comments: Users can add comments to blog posts, which are displayed nicely.
 
+## Assumptions
+ - Validation: Proper input validation and error handling have been implemented to ensure data integrity.
+ - Authentication: User authentication has been implemented using Laravel Sanctum to secure API endpoints.
+ - Pagination: Blog posts are paginated in both the API and web views.
+
+## Conclusion
+ - This project provides a simple yet functional Blog Application API using Laravel 11. It demonstrates good practices in handling user authentication, database interactions using 
+ - Eloquent, and proper CRUD functionality with separate implementations for web and API routes.
+ - 
 ## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ - This project is open-source and free to use under the MIT license.
