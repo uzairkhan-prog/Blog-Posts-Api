@@ -15,6 +15,7 @@ This repository contains a RESTful API for a Blog Application built using Larave
 
 ## Bonus Features
 
+- Implement rate limiting on API endpoints
 - Pagination for listing blog posts.
 
 ## Technologies Used
@@ -35,7 +36,7 @@ This repository contains a RESTful API for a Blog Application built using Larave
 ## Installation Steps
 
 1- Clone the repository:
- - git clone https://github.com/your-username/blog-app-laravel.git
+ - git clone https://github.com/uzairkhan-prog/Blog-Posts-Api.git
  - cd blog-app-laravel
 
 2- Install dependencies:
