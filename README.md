@@ -15,7 +15,6 @@ This repository contains a RESTful API for a Blog Application built using Larave
 
 ## Bonus Features
 
-- Implement rate limiting on API endpoints
 - Pagination for listing blog posts.
 
 ## Technologies Used
