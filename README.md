@@ -58,14 +58,14 @@ This repository contains a RESTful API for a Blog Application built using Larave
 ## API Endpoints
 
  - Method	        Endpoint	                    Description
- - POST	            /api/register	                Register a new user
- - POST	            /api/login	                    User login
- = GET	            /api/posts	                    List all blog posts (paginated)
- - GET	            /api/posts/{id}	                View a single blog post
- - POST	            /api/posts	                    Create a new blog post
- - PUT	            /api/posts/{id}	                Edit an existing blog post
- - DELETE	        /api/posts/{id}	                Delete a blog post
- - POST	            /api/posts/{id}/comments	    Add a comment to a blog post
+ - POST	            {/api/register}	                Register a new user
+ - POST	            {/api/login}	                    User login
+ = GET	            {/api/posts}	                    List all blog posts (paginated)
+ - GET	            {/api/posts/{id}}	                View a single blog post
+ - POST	            {/api/posts}	                    Create a new blog post
+ - PUT	            {/api/posts/{id}}	                Edit an existing blog post
+ - DELETE	        {/api/posts/{id}}	                Delete a blog post
+ - POST	            {/api/posts/{id}/comments}	    Add a comment to a blog post
 
 ## Web Routes
  - Web routes and controllers are defined separately in the web.php file, allowing you to access the blog application with CRUD functionality via the web interface.
