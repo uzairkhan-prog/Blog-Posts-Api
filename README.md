@@ -94,6 +94,6 @@ This repository contains a RESTful API for a Blog Application built using Larave
 ## Conclusion
  - This project provides a simple yet functional Blog Application API using Laravel 11. It demonstrates good practices in handling user authentication, database interactions using 
  - Eloquent, and proper CRUD functionality with separate implementations for web and API routes.
- - 
+   
 ## License
  - This project is open-source and free to use under the MIT license.
